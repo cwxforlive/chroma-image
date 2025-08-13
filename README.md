@@ -28,18 +28,13 @@ Chroma embeddings databases (also known as vector databases) store embeddings an
 
 5.Efficient core vector operations: delivering fast and accurate similarity searches.
 
-**Architecture Design:**
-
-![](./images/img.png)
-
-![](./images/img2.png)
-
-This project offers pre-configured [**Flink Stream Analysis Tool**](https://marketplace.huaweicloud.com/contents/992480da-64a3-4ba8-90cb-686d1832e96a#productid=OFFI1111485128289529856) images with Flink and its runtime environment pre-installed, along with deployment templates. Follow the guide to enjoy an "out-of-the-box" experience.
+This project offers pre-configured [**Chroma embbdings**](https://marketplace.huaweicloud.com/contents/992480da-64a3-4ba8-90cb-686d1832e96a#productid=OFFI1111485128289529856) images with Chroma and its runtime environment pre-installed, along with deployment templates. Follow the guide to enjoy an "out-of-the-box" experience.
 
 > **System Requirements:**
 > - CPU: 2GHz or higher  
 > - RAM: 4GB or more  
 > - Disk: At least 40GB  
+
 
 ## Prerequisites  
 [Register a Huawei account and activate Huawei Cloud](https://support.huaweicloud.com/usermanual-account/account_id_001.html)
