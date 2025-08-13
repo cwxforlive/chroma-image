@@ -1,107 +1,60 @@
-# chroma-image
 <p align="center">
-  <a href="https://trychroma.com"><img src="https://user-images.githubusercontent.com/891664/227103090-6624bf7d-9524-4e05-9d2c-c28d5d451481.png" alt="Chroma logo"></a>
+  <h1 align="center">Flink Stream Data Analysis Tool</h1>
+  <p align="center">
+    <a href="README_ZH.md"><strong>简体中文</strong></a> | <strong>English</strong>
+  </p>
 </p>
 
-<p align="center">
-    <b>Chroma - the open-source embedding database</b>. <br />
-    The fastest way to build Python or JavaScript LLM apps with memory!
-</p>
+## Table of Contents
 
-<p align="center">
-  <a href="https://discord.gg/MMeYNTmh3x" target="_blank">
-      <img src="https://img.shields.io/discord/1073293645303795742?cacheSeconds=3600" alt="Discord">
-  </a> |
-  <a href="https://github.com/chroma-core/chroma/blob/master/LICENSE" target="_blank">
-      <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License">
-  </a> |
-  <a href="https://docs.trychroma.com/" target="_blank">
-      Docs
-  </a> |
-  <a href="https://www.trychroma.com/" target="_blank">
-      Homepage
-  </a>
-</p>
+- [Repository Introduction](#repository-introduction)  
+- [Prerequisites](#prerequisites)  
+- [Image Specifications](#image-specifications)
+- [Getting Help](#getting-help)
+- [How to Contribute](#how-to-contribute)
 
-```bash
-pip install chromadb # python client
-# for javascript, npm install chromadb!
-# for client-server mode, chroma run --path /chroma_db_path
-```
+## Repository Introduction  
+Chroma embeddings databases (also known as vector databases) store embeddings and allow you to search by nearest neighbors rather than by substrings like a traditional database. By default, Chroma uses Sentence Transformers to embed for you but you can also use OpenAI embeddings, Cohere (multilingual) embeddings, or your own.
 
-## Chroma Cloud
+**Core Features:**
 
-Our hosted service, Chroma Cloud, powers serverless vector and full-text search. It's extremely fast, cost-effective, scalable and painless. Create a DB and try it out in under 30 seconds with $5 of free credits.
+1.Extremely low entry barriers and an excellent developer experience: simple installation, intuitive APIs, and ready-to-use out of the box.
 
-[Get started with Chroma Cloud](https://trychroma.com/signup)
+2.Flexible runtime modes: from fast in-memory prototyping to persistent production deployment.
 
-## API
+3.Powerful metadata filtering: a key weapon for improving retrieval accuracy.
 
-The core API is only 4 functions (run our [💡 Google Colab](https://colab.research.google.com/drive/1QEzFyqnoFxq7LUGyP1vzR4iLt9PpCDXv?usp=sharing)):
+4.Deep integration with AI development ecosystems (Python/JS, LangChain): seamlessly integrates into existing workflows.
 
-```python
-import chromadb
-# setup Chroma in-memory, for easy prototyping. Can add persistence easily!
-client = chromadb.Client()
+5.Efficient core vector operations: delivering fast and accurate similarity searches.
 
-# Create collection. get_collection, get_or_create_collection, delete_collection also available!
-collection = client.create_collection("all-my-documents")
+**Architecture Design:**
 
-# Add docs to the collection. Can also update and delete. Row-based API coming soon!
-collection.add(
-    documents=["This is document1", "This is document2"], # we handle tokenization, embedding, and indexing automatically. You can skip that and add your own embeddings as well
-    metadatas=[{"source": "notion"}, {"source": "google-docs"}], # filter on these!
-    ids=["doc1", "doc2"], # unique for each doc
-)
+![](./images/img.png)
 
-# Query/search 2 most similar results. You can also .get by id
-results = collection.query(
-    query_texts=["This is a query document"],
-    n_results=2,
-    # where={"metadata_field": "is_equal_to_this"}, # optional filter
-    # where_document={"$contains":"search_string"}  # optional filter
-)
-```
+![](./images/img2.png)
 
-Learn about all features on our [Docs](https://docs.trychroma.com)
+This project offers pre-configured [**Flink Stream Analysis Tool**](https://marketplace.huaweicloud.com/contents/992480da-64a3-4ba8-90cb-686d1832e96a#productid=OFFI1111485128289529856) images with Flink and its runtime environment pre-installed, along with deployment templates. Follow the guide to enjoy an "out-of-the-box" experience.
 
-## Features
-- __Simple__: Fully-typed, fully-tested, fully-documented == happiness
-- __Integrations__: [`🦜️🔗 LangChain`](https://blog.langchain.dev/langchain-chroma/) (python and js), [`🦙 LlamaIndex`](https://twitter.com/atroyn/status/1628557389762007040) and more soon
-- __Dev, Test, Prod__: the same API that runs in your python notebook, scales to your cluster
-- __Feature-rich__: Queries, filtering, regex and more
-- __Free & Open Source__: Apache 2.0 Licensed
+> **System Requirements:**
+> - CPU: 2GHz or higher  
+> - RAM: 4GB or more  
+> - Disk: At least 40GB  
 
-## Use case: ChatGPT for ______
+## Prerequisites  
+[Register a Huawei account and activate Huawei Cloud](https://support.huaweicloud.com/usermanual-account/account_id_001.html)
 
-For example, the `"Chat your data"` use case:
-1. Add documents to your database. You can pass in your own embeddings, embedding function, or let Chroma embed them for you.
-2. Query relevant documents with natural language.
-3. Compose documents into the context window of an LLM like `GPT4` for additional summarization or analysis.
+## Image Specifications  
 
-## Embeddings?
+| Image Version                                                                                                            | Description | Notes |  
+|--------------------------------------------------------------------------------------------------------------------------|-------------|-------|  
+| [Chroma-1.0.16-kunpeng](https://github.com/HuaweiCloudDeveloper/chroma-image/tree/Chroma-1.0.16-kunpeng)                    | Deployed on Kunpeng servers with Huawei Cloud EulerOS 2.0 64bit |  | 
 
-What are embeddings?
 
-- [Read the guide from OpenAI](https://platform.openai.com/docs/guides/embeddings/what-are-embeddings)
-- __Literal__: Embedding something turns it from image/text/audio into a list of numbers. 🖼️ or 📄 => `[1.2, 2.1, ....]`. This process makes documents "understandable" to a machine learning model.
-- __By analogy__: An embedding represents the essence of a document. This enables documents and queries with the same essence to be "near" each other and therefore easy to find.
-- __Technical__: An embedding is the latent-space position of a document at a layer of a deep neural network. For models trained specifically to embed data, this is the last layer.
-- __A small example__: If you search your photos for "famous bridge in San Francisco". By embedding this query and comparing it to the embeddings of your photos and their metadata - it should return photos of the Golden Gate Bridge.
+## Getting Help
+- Submit an [issue](https://github.com/HuaweiCloudDeveloper/flink-image/issues)
+- Contact Huawei Cloud Marketplace product support
 
-Embeddings databases (also known as **vector databases**) store embeddings and allow you to search by nearest neighbors rather than by substrings like a traditional database. By default, Chroma uses [Sentence Transformers](https://docs.trychroma.com/guides/embeddings#default:-all-minilm-l6-v2) to embed for you but you can also use OpenAI embeddings, Cohere (multilingual) embeddings, or your own.
-
-## Get involved
-
-Chroma is a rapidly developing project. We welcome PR contributors and ideas for how to improve the project.
-- [Join the conversation on Discord](https://discord.gg/MMeYNTmh3x) - `#contributing` channel
-- [Review the 🛣️ Roadmap and contribute your ideas](https://docs.trychroma.com/roadmap)
-- [Grab an issue and open a PR](https://github.com/chroma-core/chroma/issues) - [`Good first issue tag`](https://github.com/chroma-core/chroma/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
-- [Read our contributing guide](https://docs.trychroma.com/contributing)
-
-**Release Cadence**
-We currently release new tagged versions of the `pypi` and `npm` packages on Mondays. Hotfixes go out at any time during the week.
-
-## License
-
-[Apache 2.0](./LICENSE)
+## How to Contribute
+- Fork this repository and submit a merge request.
+- Update README.md synchronously based on your open-source mirror information.
