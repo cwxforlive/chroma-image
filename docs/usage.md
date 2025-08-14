@@ -130,7 +130,7 @@ source /chroma/chroma-env/bin/activate
 ```shell
 chroma run --path /data/chroma_db --host 0.0.0.0 --port
 ```
-![](images/img_12.png)
+![](images/img_17.png)
 
 ### Chroma客户端使用示例
 
@@ -174,4 +174,4 @@ print(results)
 ```
 查看输出结果：
 
-![](images/img_14.png)
+![](images/img_16.png)
